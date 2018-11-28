@@ -3,7 +3,6 @@ package com.juekjava.designPattern.template;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-import ch.qos.logback.core.net.SyslogOutputStream;
 
 /**
  * 咖啡类

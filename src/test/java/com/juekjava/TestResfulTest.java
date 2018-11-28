@@ -1,5 +1,6 @@
 package com.juekjava;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -54,27 +55,11 @@ public class TestResfulTest {
   
   
   public static void main(String[] args) {
-	  String []  atp = {"aa","bb","dd","ff","mm"};
-	  List<String> plays = Arrays.asList(atp);
-	  
-//	  for(String play : plays) {
-//		  System.out.println(play);
-//	  }
-	  
-	 // plays.forEach((player) -> System.out.println(player));
-	  
-	  String str = ",1,53,12,31,51,";
-	  String[] strArray = str.split(",");
-	  
-	  System.out.println(strArray.length);
-	  String s = new String("This is a test string");
-      
-	  StringTokenizer st = new StringTokenizer(str,",");
-	  System.out.println( "Token Total: " + st.countTokens());
-	  while( st.hasMoreElements() ){
-		    System.out.println(st.nextToken());
-		}
-   }
+	  BigDecimal bigDecimal = new BigDecimal("1.1200");
+	  System.out.println(bigDecimal.scale());
+	 
+	 
+  }
   
   @Test
   public void testMain() {
