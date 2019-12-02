@@ -3,6 +3,7 @@ package com.juekjava.designPattern.template;
 import java.applet.Applet;
 import java.awt.Graphics;
 
+@SuppressWarnings("serial")
 public class MyApplet extends Applet {
  String message;
  public void init() {

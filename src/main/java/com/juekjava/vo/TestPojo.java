@@ -15,5 +15,7 @@ public class TestPojo {
  
  private String value;
   
- 
+ public static void main(String[] args) {
+	
+}
 }

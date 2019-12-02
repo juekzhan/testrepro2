@@ -1,5 +1,6 @@
 package com.juekjava.controller;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,10 +12,8 @@ import com.juekjava.vo.TestPojo2;
 
 @RestController
 @RequestMapping("/test")
-public class TestResful {
+public class TestResful{
     
-	@Autowired
-	private TestPojo testPojo;
 	
 	@Autowired
 	private TestPojo2 testPojo2;

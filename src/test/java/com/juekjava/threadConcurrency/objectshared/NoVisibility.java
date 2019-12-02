@@ -15,7 +15,7 @@ import net.jcip.annotations.NotThreadSafe;
 public class NoVisibility {
 	private static boolean ready = false;
 
-	private static int number = 0;
+	private static ThreadLocal<Integer> number = new ThreadLocal<>();
 
 	private static class ReadThread extends Thread {
 
@@ -25,15 +25,15 @@ public class NoVisibility {
         	  // 举个例子：一帮朋友在排队上公交车，轮到Yield的时候，他突然说：我不想先上去了，咱们大家来竞赛上公交车。然后所有人就一块冲向公交车，
               //有可能是其他人先上车了，也有可能是Yield先上车了。
         	  Thread.yield();
-        	  System.out.println(number);
+        	  System.out.println(number.get());
           }
 		}
 	}
 	
 	public static void main(String[] args) {
 		new ReadThread().start();
-		number = 42;
-		ready = true;
+		number.set(1);
+		//ready = true;
 	}
 	
 }

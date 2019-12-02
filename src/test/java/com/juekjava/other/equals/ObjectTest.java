@@ -1,7 +1,6 @@
 package com.juekjava.other.equals;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class ObjectTest {
 	private String id;
@@ -47,29 +46,16 @@ public class ObjectTest {
 	}
 
 	public static void main(String[] args) {
-		ObjectTest objectTest1 = new ObjectTest("1","張三"); 
-		ObjectTest objectTest2 = new ObjectTest("1","李思"); 
-		ObjectTest objectTest3 = new ObjectTest("2","www"); 
-		ObjectTest objectTest4 = new ObjectTest("2","yyy"); 
-		ObjectTest objectTest5 = new ObjectTest("3","111"); 
-		ObjectTest objectTest6 = new ObjectTest("4","aaaa"); 
-		ObjectTest objectTest7 = new ObjectTest("5","bbbb"); 
-		List<ObjectTest> list = new ArrayList<>();
-		list.add(objectTest1);
-		list.add(objectTest2);
-		list.add(objectTest3);
-		list.add(objectTest4);
-		list.add(objectTest5);
-		list.add(objectTest6);
-		list.add(objectTest7);
+		//List<String> aa = new ArrayList<>();
 		
-		System.out.println(objectTest1.equals(objectTest2));
+//		aa.add("111");
+//		aa.add("111");
+//		aa.add("111");
+//        System.out.println(aa.stream());		
 		
-		for(ObjectTest objectTest : list) {
-			System.out.println(objectTest);
-		}
-		
-		
+		//Map<Long, List<OrderReturnLineCreateInfoIn>> groupLists = orderReturnLineCreateInfoIns.stream().collect(Collectors.groupingBy( OrderReturnLineCreateInfoIn::getOrderProdureId ) );//CollectionsUtil.group(orderReturnLineCreateInfoIns, "orderProdureId");
+	     //String aa = null;
+          //System.out.println(aa.startsWith("en"));
 		
 	}
 }
