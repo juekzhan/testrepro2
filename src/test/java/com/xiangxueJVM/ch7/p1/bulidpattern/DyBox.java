@@ -10,7 +10,7 @@ public class DyBox {
 	    }
 	 
 	 public static void main(String[] args) {
-		   DyBox dwBox = new DyBox();
+		    DyBox dwBox = new DyBox();
 	        System.out.println("我需要一个端午礼盒");
 	        dwBox.buildDWBox(new DwBuilder());
 	}
