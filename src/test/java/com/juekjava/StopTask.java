@@ -4,6 +4,7 @@ public class StopTask extends Thread
  {
    //为什么这个volatile 关键字要 不要 都不受影响呀 郁闷中
 	private volatile boolean pleaseStop = true;
+	
 	//private boolean pleaseStop = true;
 	@Override
 	public void run() {
