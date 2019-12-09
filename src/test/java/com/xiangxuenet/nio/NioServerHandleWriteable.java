@@ -113,7 +113,7 @@ public class NioServerHandleWriteable implements Runnable {
 				System.out.println("writeable..........");
 				SocketChannel sc = (SocketChannel) key.channel();
 				ByteBuffer att = (ByteBuffer) key.attachment();
-				if(att.hasRemaining()) {    //如果有数据了这么办呢
+				if(att.hasRemaining()) {    //如果有数据了
 					int count = sc.write(att);
 					System.out.println("write:" +count+"byte ,hasR:"+att.hasRemaining());
 				}else {
