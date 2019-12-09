@@ -1,7 +1,7 @@
 package com.xiangxuenet.nio;
 
 public interface Const {
-	 public static int DEFAULT_PORT = 12345;
+	 public static int DEFAULT_PORT = 9454;
 	
 	 public static String DEFAULT_SERVER_IP = "127.0.0.1";
 	 

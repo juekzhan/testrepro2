@@ -66,9 +66,20 @@ public class NioClientHandle implements Runnable {
 						handleInput(key);
 					}catch (Exception e) {
                       if(key != null) key.cancel();
+                      //
+                      if(key.channel()!=null) key.channel().close();
 					}
 				}
 			}catch(Exception e) {
+				e.printStackTrace();
+				System.exit(-1);
+			}
+		}
+		//关闭选择器
+		if(selector != null) {
+			try {
+				selector.close();
+			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
@@ -96,7 +107,11 @@ public class NioClientHandle implements Runnable {
 				//将通道的数据读取到缓冲区，read方法返回读取到的字节数
 				int readBytes = sc.read(buffer);
 				if(readBytes > 0) {
-					
+					buffer.flip();//重置切换到读模式
+					byte[] bytes = new byte[buffer.remaining()];    //有多少的数据可读
+					buffer.get(bytes);
+					String result = new String(bytes,"UTF-8");
+					System.out.println("收到消息："+ result);
 				}else if(readBytes<0) {   //小于0 相当于已经分了
 					key.cancel();
 					sc.close();
@@ -121,7 +136,21 @@ public class NioClientHandle implements Runnable {
 	
 	
 	 /*写数据对外暴露的API*/
-    public boolean sendMsg(String msg) {
-    	return true;
+    public void sendMsg(String msg) {
+    	//往 channel 中写数据
+    	doWrite(socketChannel,msg);
     }
+
+
+	private void doWrite(SocketChannel sc , String request) {
+		byte[] bytes = request.getBytes();
+		ByteBuffer writeBuffer = ByteBuffer.allocate(bytes.length); 
+		writeBuffer.put(bytes);
+		writeBuffer.flip();
+		try {
+			sc.write(writeBuffer);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 }

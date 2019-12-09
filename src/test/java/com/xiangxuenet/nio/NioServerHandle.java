@@ -1,5 +1,6 @@
 package com.xiangxuenet.nio;
 
+import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
@@ -20,7 +21,9 @@ public class NioServerHandle implements Runnable {
 		  serverChannel.configureBlocking(false);//开启非阻塞模式
 		  
 		  //标记服务器已经开
+		  serverChannel.socket().bind(new InetSocketAddress(port));  //绑定端口
 		  
+		  serverChannel.register(selector, SelectionKey.OP_ACCEPT);   //服务端关注被链接的事件
 		  started = true;
           System.out.println("服务器已启动，端口号：" + port);
 	  }catch (Exception e) {
@@ -65,6 +68,16 @@ public class NioServerHandle implements Runnable {
 	
 	private void handleInput(SelectionKey key) throws Exception{
 		if(key.isValid()) {
+			//处理新接入的请求消息
+			if(key.isAcceptable()) {
+				ServerSocketChannel  ssc = (ServerSocketChannel) key.channel();
+				SocketChannel sc = ssc.accept();
+				System.out.println("=========建立链接===========");
+				sc.configureBlocking(false); //设置为非阻塞
+				sc.register(selector, SelectionKey.OP_READ);
+			}
+			
+			
 			if(key.isReadable()) {
 				System.out.println("======socket channel 数据准备完成 可以去读取==========");
 				SocketChannel sc = (SocketChannel)key.channel();
@@ -85,7 +98,7 @@ public class NioServerHandle implements Runnable {
                     String message = new String(bytes,"UTF-8");
                     System.out.println("服务器 接收的消息为 ："+message);
                     //处理数据
-                    String result = "服务器发送是呀"+message ;
+                    String result = "服务器发送是呀ss"+message ;
                     //发送应答消息
                     doWrite(sc,result);
 				}else if(readBytes<0) {
