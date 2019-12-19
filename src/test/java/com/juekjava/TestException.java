@@ -1,5 +1,7 @@
 package com.juekjava;
 
+import org.junit.Test;
+
 public class TestException {
   
 	public static void main(String[] args) {
@@ -18,6 +20,19 @@ public class TestException {
 		 throw new RuntimeException("不合理");
 		}
 		System.out.println("正常的业务流程");
+	}
+	
+	@Test
+	public void testFor() {
+		int bb = 3;
+		int pageCount = 1;
+		for(int i = 0 ;i<pageCount;i++) {
+			System.out.println(i);
+			
+			pageCount ++;
+		}
+		
+		
 	}
 
 }
