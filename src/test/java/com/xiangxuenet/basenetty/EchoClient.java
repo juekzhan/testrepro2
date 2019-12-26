@@ -35,9 +35,10 @@ public class EchoClient {
     	remoteAddress(new InetSocketAddress(host,port)).  //地址
     	handler(new EchoClientHandle());  //处理器 ，接收到 出路读写
     	/*连接到远程节点，阻塞直到连接完成*/
-    	ChannelFuture f = b.connect().sync();
+    	ChannelFuture f = b.connect() //发起链接   //这边阻塞 ，要设置上阻塞 链接
+    			.sync();
     	//阻塞程序直到关闭
-    	f.channel().closeFuture().sync();
+    	f.channel().closeFuture().sync(); //拿到channel  等到链接关闭事件发生 
      }finally {
     	 group.shutdownGracefully().sync(); 
      }

@@ -37,7 +37,7 @@ public static void main(String[] args) throws Exception {
 		 /*服务端每接收到一个连接请求，就会新启一个socket通信，也就是channel，
          所以下面这段代码的作用就是为这个子channel增加handle*/
 		 .childHandler(new ChannelInitializer<SocketChannel>() {
-			 /*添加到该子channel的pipeline的尾部*/
+			 /*添加到该子channel的pipeline的尾部*/ //形成一个 链表 
 			@Override
 			protected void initChannel(SocketChannel ch) throws Exception {
 				ch.pipeline().addLast(echoServerHandler);

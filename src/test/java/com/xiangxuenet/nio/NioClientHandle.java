@@ -129,7 +129,10 @@ public class NioClientHandle implements Runnable {
 		//就是没有完成的状态注册一个通道的链接时间 ，（关联上通道）
 		//（如果这个连接通道 已经完成了，就不要这个通道了，如果没完成 ，正在进行时就注册到事件选择器上的一个连接事件）
 		if(socketChannel.connect(new InetSocketAddress(host,port))) {
+			//链接成功了 关注读事件
+			socketChannel.register(selector,SelectionKey.OP_READ);
 		}else {
+			//链接不成功 ，就关注链接事件
 			socketChannel.register(selector,SelectionKey.OP_CONNECT);
 		}
 	}

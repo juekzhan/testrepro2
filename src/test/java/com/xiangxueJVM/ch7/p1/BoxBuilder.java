@@ -11,6 +11,7 @@ public class BoxBuilder {
     private   int ldg;//绿豆糕
     private   int yb;//月饼
     private   int jg;//坚果
+    
     public static class Builder{
         //required必须参数
         private  final String Name;//礼盒名称

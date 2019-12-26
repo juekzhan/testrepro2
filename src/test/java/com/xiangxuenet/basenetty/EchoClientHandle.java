@@ -17,15 +17,16 @@ public class EchoClientHandle extends SimpleChannelInboundHandler<ByteBuf> {
 	//建立链接 之后
 	 @Override
 	public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        ctx.writeAndFlush(Unpooled.copiedBuffer(
+         //写完，然后刷新
+		 ctx.writeAndFlush(Unpooled.copiedBuffer(
                 "Hello Netty",CharsetUtil.UTF_8));
     }
 	 
-    //如果有异常  进行异常检查
+    //如果有异常  进行异常检查 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause)
             throws Exception {
-        cause.printStackTrace();
-        ctx.close();
+        cause.printStackTrace(); //打印异常
+        ctx.close();  //关闭当前的链接
     }
 }
