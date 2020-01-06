@@ -1,11 +1,11 @@
-package com.xiangxuenet.basenetty;
+package com.xiangxuenet.basenetty.helloword;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufAllocator;
-import io.netty.buffer.ByteBufUtil;
+//import io.netty.buffer.ByteBufUtil;
 import io.netty.buffer.PooledByteBufAllocator;
 import io.netty.buffer.UnpooledByteBufAllocator;
-import io.netty.util.ReferenceCountUtil;
+//import io.netty.util.ReferenceCountUtil;
 
 public class ByteBufTest {
 
@@ -17,11 +17,13 @@ public class ByteBufTest {
 		ByteBufAllocator allocatorPool = new PooledByteBufAllocator();
        
 		ByteBuf buf = allocatorFactory.buffer(1024);
+		ByteBuf bufPool = allocatorPool.buffer(1024);
 		
 		//2,访问
 		buf.readerIndex(); //手动指引索引
 		buf.readLong(); //手动移动8位
 		//buf.indexOf(3,5,'C');
+		bufPool.readLong();
 		
 		//3,可写字节，可读 字节，可丢弃字节
 		buf.discardReadBytes();//把可读字节往前移动，（带了内存无为的拷贝）

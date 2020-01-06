@@ -1,4 +1,4 @@
-package com.xiangxuenet.basenetty;
+package com.xiangxuenet.basenetty.helloword;
 
 import java.net.InetSocketAddress;
 
