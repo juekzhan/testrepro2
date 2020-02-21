@@ -10,7 +10,7 @@ import com.xiangxuenet.bio.rcpserver.UserInfo;
 public class LocalCall {
 
 	public static void main(String[] args) {
-		   NormalBusi normalBusi = new NormalBusi();
+		    NormalBusi normalBusi = new NormalBusi();
 	        normalBusi.business();
 
 	        StockService stockService = new StockServiceImpl();

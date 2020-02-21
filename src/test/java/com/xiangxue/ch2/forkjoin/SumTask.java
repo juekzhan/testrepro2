@@ -12,7 +12,6 @@ import com.xiangxue.ch1.SleepTools;
  * @Description: fork/join 的用法  RecursiveTask<Integer> 有返回值的
  * @Author: shuling.zhan
  * @Email: shuling.zhan@baozun.com
- * @Date: 2019年5月5日 下午3:12:36
  */
 public class SumTask extends RecursiveTask<Integer> {
 	/**

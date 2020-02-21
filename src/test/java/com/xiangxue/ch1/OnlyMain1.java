@@ -11,7 +11,6 @@ import java.lang.management.ThreadMXBean;
  * @Description: 线程监控接口
  * @Author: shuling.zhan
  * @Email: shuling.zhan@baozun.com
- * @Date: 2019年4月25日 上午9:48:58
  */
 public class OnlyMain1 {
   public static void main(String[] args) {

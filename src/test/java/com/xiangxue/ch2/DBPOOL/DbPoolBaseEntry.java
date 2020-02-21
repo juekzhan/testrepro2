@@ -6,7 +6,6 @@ package com.xiangxue.ch2.DBPOOL;
  * @Description: 数据库连接池 实例
  * @Author: shuling.zhan
  * @Email: shuling.zhan@baozun.com
- * @Date: 2019年4月30日 上午9:40:37
  */
 
 import java.sql.Connection;

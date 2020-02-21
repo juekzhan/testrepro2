@@ -10,7 +10,6 @@ import com.xiangxue.ch1.SleepTools;
  * @Description: 业务线程   和 初始化线程
  * @Author: shuling.zhan
  * @Email: shuling.zhan@baozun.com
- * @Date: 2019年5月9日 上午11:42:48
  */
 public class UseCountDownLatch {
      //定义初始值为6 进行计算

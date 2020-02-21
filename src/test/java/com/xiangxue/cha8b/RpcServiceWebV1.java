@@ -48,7 +48,7 @@ public class RpcServiceWebV1 {
 		for(int i =0 ; i<docCount ;i++) {
 			docUpCompltionService.take().get();
 		}
-		  System.out.println("共耗时："+(System.currentTimeMillis()-startTotal)+"ms");
+		  System.out.println("共耗时："+(System.currentTimeMillis()-startTotal)/1000+"s");
 	}
 	//生成文档的线程
 	private static class MakeDocTask implements  Callable<String>{

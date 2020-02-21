@@ -24,7 +24,7 @@ public class TestException {
 	
 	@Test
 	public void testFor() {
-		int bb = 3;
+	//	int bb = 3;
 		int pageCount = 1;
 		for(int i = 0 ;i<pageCount;i++) {
 			System.out.println(i);

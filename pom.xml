@@ -5,6 +5,7 @@
 	<groupId>com.juekjava</groupId>
 	<artifactId>project-test</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -24,13 +25,15 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
+         
+         
+         
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
+       
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -114,7 +117,21 @@
 		<groupId>mysql</groupId>
 		<artifactId>mysql-connector-java</artifactId>
 		</dependency>
-
+        
+        <!-- google 提供 java序列化机制 -->
+        <dependency>
+          <groupId>com.google.protobuf</groupId>
+          <artifactId>protobuf-java</artifactId>
+          <version>2.6.1</version>
+        </dependency>
+        
+        <!-- appch 提供的序列化 机制 -->
+        <dependency>
+          <groupId>org.msgpack</groupId>
+          <artifactId>msgpack</artifactId>
+          <version>0.6.12</version>
+        </dependency>
+        
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-configuration-processor</artifactId>
@@ -126,6 +143,10 @@
     <artifactId>commons-lang</artifactId>
     <version>2.6</version>
 </dependency>
+
+
+  
+
 	</dependencies>
 
 

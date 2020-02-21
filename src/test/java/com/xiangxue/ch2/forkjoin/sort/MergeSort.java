@@ -11,7 +11,6 @@ import com.xiangxue.ch2.forkjoin.MakeArray;
  * @Description: 归并排序
  * @Author: shuling.zhan
  * @Email: shuling.zhan@baozun.com
- * @Date: 2019年5月5日 下午4:09:39
  */
 public class MergeSort {
   public  static int[] sort(int[] array) {
@@ -36,7 +35,6 @@ public class MergeSort {
    * @return: int[]      
    * @throws  
    * @author: shuling.zhan
-   * @date :2019年5月5日 下午5:01:59
    */
   public static int[] merge(int[] left, int[] right) {
 	  int[] result = new int[left.length + right.length];
