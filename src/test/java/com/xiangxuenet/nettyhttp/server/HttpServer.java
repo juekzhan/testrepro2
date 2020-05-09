@@ -24,7 +24,7 @@ public class HttpServer {
   
   private static EventLoopGroup group = new NioEventLoopGroup();
   
-  private static final boolean SSL = true; // 加https 请求
+  private static final boolean SSL = false; // 加https 请求
   
   private static final ServerBootstrap b = new ServerBootstrap();
   

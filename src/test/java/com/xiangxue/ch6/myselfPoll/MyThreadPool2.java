@@ -11,6 +11,9 @@ package com.xiangxue.ch6.myselfPoll;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 public class MyThreadPool2 {
    //线程池中默认的线程数
@@ -106,22 +109,21 @@ public class MyThreadPool2 {
 	}
 	
 	public static void main(String[] args) {
-		MyThreadPool2 pool = new MyThreadPool2(5,0);
+		//MyThreadPool2 pool = new MyThreadPool2(5,0);
 		
-		pool.execute(new MyThread("王业鑫"));
-		pool.execute(new MyThread("春B"));
-		pool.execute(new MyThread("蔡迪波0"));
-		pool.execute(new MyThread("蔡迪波1"));
-		pool.execute(new MyThread("蔡迪波2"));
+		ExecutorService pool = new ThreadPoolExecutor(2, 4, 3, 
+				TimeUnit.SECONDS, 
+				new ArrayBlockingQueue<Runnable>(10),    //不建议使用无界队列，防止OOM  // JDK 里面的 new的几个类型的线程池不兼用使用
+				//new MyThreadFactory(),    //线程池工厂，给每个线程设置属性 （在这里，设置为守护线程）
+				new ThreadPoolExecutor.AbortPolicy());
 		
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		for(;;) {
+		pool.execute(new MyThread("A1"));
+		pool.execute(new MyThread("B"));
+		pool.execute(new MyThread("C0"));
+		pool.execute(new MyThread("C1"));
+		pool.execute(new MyThread("C2"));
 		}
-		pool.execute(new MyThread("juek"));
-		pool.destory();
 	}
 	
 
